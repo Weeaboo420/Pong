@@ -5,4 +5,4 @@ So I was bored and got the idea to make Pong in an hour, which is exactly what I
 
 Even though I ended up making the core game in an hour, I spent an additional hour on some polish and I added sound effects, a master volume slider and a pause menu.
 
-# [DOWNLOAD](https://github.com/Weeaboo420/Pong/blob/master/Pong/Build/Pong.zip)
+# [DOWNLOAD](https://github.com/Weeaboo420/Pong/raw/master/Pong/Build/Pong.zip)
