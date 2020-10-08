@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Ball
     - Goal
+    - GraphicsSettings
     - Paddle
     - ScoreKeeper
     Unity.2D.Animation.Editor.dll:
@@ -34,6 +35,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -83,7 +85,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14246}
     - Class: 114
+      Script: {instanceID: 14266}
+    - Class: 114
       Script: {instanceID: 14288}
+    - Class: 114
+      Script: {instanceID: 14852}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -607,6 +613,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 8605018379cbf4ec0ed15295888813e6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GraphicsSettings
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

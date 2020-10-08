@@ -66,6 +66,7 @@
     <Compile Include="Assets\Resources\Scripts\Ball.cs" />
     <Compile Include="Assets\Resources\Scripts\Globals.cs" />
     <Compile Include="Assets\Resources\Scripts\Goal.cs" />
+    <Compile Include="Assets\Resources\Scripts\GraphicsSettings.cs" />
     <Compile Include="Assets\Resources\Scripts\Paddle.cs" />
     <Compile Include="Assets\Resources\Scripts\ScoreKeeper.cs" />
     <Reference Include="UnityEngine">
