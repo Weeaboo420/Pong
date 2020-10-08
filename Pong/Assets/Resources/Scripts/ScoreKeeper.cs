@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreKeeper : MonoBehaviour
 {        
@@ -15,6 +16,9 @@ public class ScoreKeeper : MonoBehaviour
     
     [SerializeField]
     private AudioSource _audioSource;
+
+    [SerializeField]
+    private bool _isSinglePlayer = false;
 
     private float _currentMasterVolume;
     private bool _defaultMove = true;
@@ -49,6 +53,11 @@ public class ScoreKeeper : MonoBehaviour
         }
     }
 
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -74,8 +83,17 @@ public class ScoreKeeper : MonoBehaviour
 
     private void UpdateUI()
     {
-        _playerOneScore.text = "Player 1: " + _leftPlayerScore.ToString();
-        _playerTwoScore.text = "Player 2: " + _rightPlayerScore.ToString();
+        
+
+        if (!_isSinglePlayer)
+        {
+            _playerOneScore.text = "Player 1: " + _leftPlayerScore.ToString();
+            _playerTwoScore.text = "Player 2: " + _rightPlayerScore.ToString();
+        } else
+        {
+            _playerOneScore.text = "Player: " + _leftPlayerScore.ToString();
+            _playerTwoScore.text = "CPU: " + _rightPlayerScore.ToString();
+        }
     }
 
     private void Start()
