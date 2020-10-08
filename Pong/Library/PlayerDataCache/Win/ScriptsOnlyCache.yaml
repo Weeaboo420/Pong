@@ -71,25 +71,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11514}
     - Class: 114
-      Script: {instanceID: 12176}
+      Script: {instanceID: 11716}
     - Class: 114
-      Script: {instanceID: 12320}
+      Script: {instanceID: 12178}
     - Class: 114
-      Script: {instanceID: 12876}
+      Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 13352}
+      Script: {instanceID: 12878}
     - Class: 114
-      Script: {instanceID: 13452}
+      Script: {instanceID: 13354}
     - Class: 114
-      Script: {instanceID: 13636}
+      Script: {instanceID: 13454}
     - Class: 114
-      Script: {instanceID: 14246}
+      Script: {instanceID: 13638}
     - Class: 114
-      Script: {instanceID: 14266}
+      Script: {instanceID: 14248}
     - Class: 114
-      Script: {instanceID: 14288}
+      Script: {instanceID: 14268}
     - Class: 114
-      Script: {instanceID: 14852}
+      Script: {instanceID: 14290}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -241,6 +241,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 8605018379cbf4ec0ed15295888813e6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GraphicsSettings
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -613,12 +619,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 8605018379cbf4ec0ed15295888813e6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GraphicsSettings
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

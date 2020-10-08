@@ -41,9 +41,11 @@ public class ScoreKeeper : MonoBehaviour
         if(!_exitScreen.activeSelf)
         {
             Time.timeScale = 1f;
+            Cursor.visible = false;
         } else
         {
             Time.timeScale = 0f;
+            Cursor.visible = true;
         }
     }
 
@@ -81,7 +83,9 @@ public class ScoreKeeper : MonoBehaviour
         UpdateUI();
         SpawnBall();
 
-        if(PlayerPrefs.HasKey("MasterVolume"))
+        Cursor.visible = false;
+
+        if (PlayerPrefs.HasKey("MasterVolume"))
         {
             _currentMasterVolume = PlayerPrefs.GetFloat("MasterVolume");
         } else
