@@ -2,11 +2,10 @@
 
 public class Ball : MonoBehaviour
 {
-    public bool MovingRight = true;
-    public bool MovingUp = true;
-    private AudioSource _audioSource;
-    private float _currentSpeed;
+    public bool MovingRight, MovingUp = true;    
+    private AudioSource _audioSource;    
     private GameObject _lastPaddle, _lastBounds;
+    private float _currentSpeed;    
 
     private void Start()
     {
@@ -21,10 +20,7 @@ public class Ball : MonoBehaviour
             MovingRight = !MovingRight;
             _lastPaddle = collision.gameObject;
 
-            if(Random.Range(0f, 10f) >= 0.5f)
-            {
-                MovingUp = !MovingUp;
-            }
+            MovingUp = collision.gameObject.GetComponent<Paddle>().GetMovingUp();
 
             _audioSource.Play();
             _audioSource.pitch = Random.Range(0.85f, 1.1f);

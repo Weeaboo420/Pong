@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8316ba6b0fe2cfa488b71814dd6ee3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsRightPaddle: 1
+  _isRightPaddle: 1
 --- !u!50 &691548898
 Rigidbody2D:
   serializedVersion: 4
@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8316ba6b0fe2cfa488b71814dd6ee3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsRightPaddle: 0
+  _isRightPaddle: 0
 --- !u!50 &1039780177
 Rigidbody2D:
   serializedVersion: 4
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8dd3faa8a40ad4ea2f431152985812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsRightGoal: 1
+  _isRightGoal: 1
 --- !u!61 &1058939785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8dd3faa8a40ad4ea2f431152985812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsRightGoal: 0
+  _isRightGoal: 0
 --- !u!61 &1428997201
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2323,12 +2323,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3954af918fc9b5644bd5a43ac11fe908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerOneScore: {fileID: 345922579}
-  PlayerTwoScore: {fileID: 174356468}
-  BallPrefab: {fileID: 405117537408246943, guid: 52d1f7d11aa544242b50d88bddec1735,
+  _playerOneScore: {fileID: 345922579}
+  _playerTwoScore: {fileID: 174356468}
+  _ballPrefab: {fileID: 405117537408246943, guid: 52d1f7d11aa544242b50d88bddec1735,
     type: 3}
-  ExitScreen: {fileID: 50135084}
-  MasterVolumeSlider: {fileID: 838793447}
+  _exitScreen: {fileID: 50135084}
+  _masterVolumeSlider: {fileID: 838793447}
+  _audioSource: {fileID: 1845696764}
 --- !u!4 &1845696763
 Transform:
   m_ObjectHideFlags: 0

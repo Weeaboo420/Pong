@@ -3,32 +3,42 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour
-{
-    private int _leftPlayerScore = 0, _rightPlayerScore = 0;
-    public Text PlayerOneScore, PlayerTwoScore;
-    public GameObject BallPrefab, ExitScreen;
-    public Slider MasterVolumeSlider;
-    private bool DefaultMove = true;
-    private AudioSource _audioSource;
-    private float _currentMasterVolume;
+{        
+    [SerializeField]
+    private Text _playerOneScore, _playerTwoScore;
 
+    [SerializeField]
+    private GameObject _ballPrefab, _exitScreen;
+
+    [SerializeField]
+    private Slider _masterVolumeSlider;
+    
+    [SerializeField]
+    private AudioSource _audioSource;
+
+    private float _currentMasterVolume;
+    private bool _defaultMove = true;
+    private int _leftPlayerScore = 0, _rightPlayerScore = 0;
+    private GameObject _ball;
     private void SpawnBall()
     {
-        GameObject newBall = (GameObject)Instantiate(BallPrefab, new Vector3(0, Random.Range(-2.5f, 2.5f), 0), Quaternion.identity);
+        GameObject newBall = (GameObject)Instantiate(_ballPrefab, new Vector3(0, Random.Range(-2.5f, 2.5f), 0), Quaternion.identity);
 
         Ball ballScript = newBall.GetComponent<Ball>();
-        ballScript.MovingRight = DefaultMove;
-        ballScript.MovingUp = DefaultMove;
+        ballScript.MovingRight = _defaultMove;
+        ballScript.MovingUp = _defaultMove;
 
-        DefaultMove = !DefaultMove;
+        _ball = newBall;
+
+        _defaultMove = !_defaultMove;
 
     }
 
     public void ToggleExitScreen()
     {
-        ExitScreen.SetActive(!ExitScreen.activeSelf);
+        _exitScreen.SetActive(!_exitScreen.activeSelf);
 
-        if(!ExitScreen.activeSelf)
+        if(!_exitScreen.activeSelf)
         {
             Time.timeScale = 1f;
         } else
@@ -62,15 +72,14 @@ public class ScoreKeeper : MonoBehaviour
 
     private void UpdateUI()
     {
-        PlayerOneScore.text = "Player 1: " + _leftPlayerScore.ToString();
-        PlayerTwoScore.text = "Player 2: " + _rightPlayerScore.ToString();
+        _playerOneScore.text = "Player 1: " + _leftPlayerScore.ToString();
+        _playerTwoScore.text = "Player 2: " + _rightPlayerScore.ToString();
     }
 
     private void Start()
     {
         UpdateUI();
         SpawnBall();
-        _audioSource = GetComponent<AudioSource>();
 
         if(PlayerPrefs.HasKey("MasterVolume"))
         {
@@ -80,16 +89,27 @@ public class ScoreKeeper : MonoBehaviour
             _currentMasterVolume = 1f;
         }
 
-        MasterVolumeSlider.value = _currentMasterVolume;
+        _masterVolumeSlider.value = _currentMasterVolume;
 
         ApplyMasterVolume();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape)) //Toggle the exit screen
         {
             ToggleExitScreen();
+        }
+        
+        if (_ball != null) //Make sure we have a reference to the ball before looking at its position.
+        {
+            //If the ball travels outside the bounds, remove it, and spawn a new one.
+            if (_ball.transform.position.x > Globals.BoundsX || _ball.transform.position.x < -Globals.BoundsX ||
+                _ball.transform.position.y > Globals.BoundsY || _ball.transform.position.y < -Globals.BoundsY)
+            {
+                Destroy(_ball);
+                StartCoroutine(StartNewRound());
+            }
         }
     }
 

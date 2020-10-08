@@ -61,29 +61,29 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11168}
+      Script: {instanceID: 11170}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11454}
     - Class: 114
-      Script: {instanceID: 11510}
+      Script: {instanceID: 11460}
     - Class: 114
-      Script: {instanceID: 12170}
+      Script: {instanceID: 11514}
     - Class: 114
-      Script: {instanceID: 12868}
+      Script: {instanceID: 12176}
     - Class: 114
-      Script: {instanceID: 13624}
+      Script: {instanceID: 12320}
     - Class: 114
-      Script: {instanceID: 14234}
+      Script: {instanceID: 12876}
     - Class: 114
-      Script: {instanceID: 14276}
+      Script: {instanceID: 13352}
     - Class: 114
-      Script: {instanceID: 18518}
+      Script: {instanceID: 13452}
     - Class: 114
-      Script: {instanceID: 19328}
+      Script: {instanceID: 13636}
     - Class: 114
-      Script: {instanceID: 19486}
+      Script: {instanceID: 14246}
     - Class: 114
-      Script: {instanceID: 19964}
+      Script: {instanceID: 14288}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -151,6 +151,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: d345353cab4acd3714a2ce17d244561e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScoreKeeper
   - hash:
       serializedVersion: 2
       Hash: aeb62f729c52c814dec86c47dcac1471
@@ -333,6 +339,12 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: a1d938ea448d264c63e58622e9fcc945
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Ball
+  - hash:
+      serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -451,6 +463,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 30b8884003c6babf5ed390e6adad72d7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Goal
+  - hash:
+      serializedVersion: 2
+      Hash: 024822e2127560b6108f4d7212c1bc7a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Paddle
   - hash:
       serializedVersion: 2
       Hash: 8001a5f7502aab37e42206da015e6914
@@ -583,30 +607,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: ebe7202117785f1168b87067bf04644b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Paddle
-  - hash:
-      serializedVersion: 2
-      Hash: 24490cf9cfe05461f002a7bb090442fb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Goal
-  - hash:
-      serializedVersion: 2
-      Hash: 9fd999056b8b7c272572483774f8e8f3
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ScoreKeeper
-  - hash:
-      serializedVersion: 2
-      Hash: a1d938ea448d264c63e58622e9fcc945
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Ball
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

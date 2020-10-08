@@ -2,22 +2,31 @@
 
 public class Paddle : MonoBehaviour
 {
-    public bool IsRightPaddle = true;
+    [SerializeField]
+    private bool _isRightPaddle = true;
+    private bool _movingUp;
+
+    public bool GetMovingUp()
+    {
+        return _movingUp;
+    }
 
     private void Update()
     {
         Vector2 myPos = transform.position;
 
-        if (IsRightPaddle)
+        if (_isRightPaddle)
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 myPos.y += Globals.PaddleSpeed * Time.deltaTime;
+                _movingUp = true;
             }
 
             else if (Input.GetKey(KeyCode.DownArrow))
             {
                 myPos.y -= Globals.PaddleSpeed * Time.deltaTime;
+                _movingUp = false;
             }
         }
 
@@ -26,11 +35,13 @@ public class Paddle : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 myPos.y += Globals.PaddleSpeed * Time.deltaTime;
+                _movingUp = true;
             }
 
             else if (Input.GetKey(KeyCode.S))
             {
                 myPos.y -= Globals.PaddleSpeed * Time.deltaTime;
+                _movingUp = false;
             }
         }
 

@@ -2,7 +2,8 @@
 
 public class Goal : MonoBehaviour
 {
-    public bool IsRightGoal = true;
+    [SerializeField]
+    private bool _isRightGoal = true;
     private ScoreKeeper _scoreKeeper;
 
     private void Start()
@@ -14,7 +15,7 @@ public class Goal : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ball"))
         {
-            _scoreKeeper.AddScore(!IsRightGoal);
+            _scoreKeeper.AddScore(!_isRightGoal);
             Destroy(collision.gameObject);
         }
     }
