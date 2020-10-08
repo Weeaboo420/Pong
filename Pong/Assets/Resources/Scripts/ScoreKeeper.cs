@@ -17,6 +17,9 @@ public class ScoreKeeper : MonoBehaviour
     [SerializeField]
     private AudioSource _audioSource;
 
+    [SerializeField]
+    private bool _isSinglePlayer = false;
+
     private float _currentMasterVolume;
     private bool _defaultMove = true;
     private int _leftPlayerScore = 0, _rightPlayerScore = 0;
@@ -80,8 +83,17 @@ public class ScoreKeeper : MonoBehaviour
 
     private void UpdateUI()
     {
-        _playerOneScore.text = "Player 1: " + _leftPlayerScore.ToString();
-        _playerTwoScore.text = "Player 2: " + _rightPlayerScore.ToString();
+        
+
+        if (!_isSinglePlayer)
+        {
+            _playerOneScore.text = "Player 1: " + _leftPlayerScore.ToString();
+            _playerTwoScore.text = "Player 2: " + _rightPlayerScore.ToString();
+        } else
+        {
+            _playerOneScore.text = "Player: " + _leftPlayerScore.ToString();
+            _playerTwoScore.text = "CPU: " + _rightPlayerScore.ToString();
+        }
     }
 
     private void Start()

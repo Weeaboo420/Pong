@@ -28,7 +28,12 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartMultiplayer()
     {
-        SceneManager.LoadScene("Pvp");
+        SceneManager.LoadScene("PvP");
+    }
+
+    public void StartSingleplayer()
+    {
+        SceneManager.LoadScene("PvE");
     }
 
     public void ExitGame()

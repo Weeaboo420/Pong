@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Pvp.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: e35a6398ee8fe4747bbb420b709ab4d1
+  - enabled: 1
+    path: Assets/Scenes/PvP.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/PvE.unity
+    guid: 75dc76c6a3eba8d4d8cc2f67b6837d10
   m_configObjects: {}
