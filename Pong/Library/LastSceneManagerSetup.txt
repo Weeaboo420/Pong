@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/PvE.unity
+- path: Assets/Scenes/PvP.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
