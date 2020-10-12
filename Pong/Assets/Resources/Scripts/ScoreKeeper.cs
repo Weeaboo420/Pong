@@ -125,12 +125,11 @@ public class ScoreKeeper : MonoBehaviour
         
         if (_ball != null) //Make sure we have a reference to the ball before looking at its position.
         {
-            //If the ball travels outside the bounds, remove it, and spawn a new one.
+            //If the ball travels outside the bounds, reset its position to the center of the screen
             if (_ball.transform.position.x > Globals.BoundsX || _ball.transform.position.x < -Globals.BoundsX ||
                 _ball.transform.position.y > Globals.BoundsY || _ball.transform.position.y < -Globals.BoundsY)
             {
-                Destroy(_ball);
-                StartCoroutine(StartNewRound());
+                _ball.transform.position = new Vector3(0, 0, 0);
             }
         }
     }

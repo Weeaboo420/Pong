@@ -5,12 +5,14 @@ public class Ball : MonoBehaviour
     public bool MovingRight, MovingUp = true;    
     private AudioSource _audioSource;    
     private GameObject _lastPaddle, _lastBounds;
-    private float _currentSpeed;    
+    private float _currentSpeed;
+    private Rigidbody2D _rigidbody;
 
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
         _currentSpeed = Globals.BallSpeed;
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,27 +50,27 @@ public class Ball : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Vector2 myPos = transform.position;
+        Vector2 newVelocity = _rigidbody.velocity;
 
         if(MovingRight)
         {
-            myPos.x += _currentSpeed * Time.deltaTime;
+            newVelocity.x = _currentSpeed;
         } else
         {
-            myPos.x -= _currentSpeed * Time.deltaTime;
+            newVelocity.x = -_currentSpeed;
         }
 
         if(MovingUp)
         {
-            myPos.y += _currentSpeed * Time.deltaTime;
+            newVelocity.y = _currentSpeed;
         } else
         {
-            myPos.y -= _currentSpeed * Time.deltaTime;
+            newVelocity.y = -_currentSpeed;
         }
 
-        transform.position = myPos;
+        _rigidbody.velocity = newVelocity;
     }
 
 }

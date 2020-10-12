@@ -10,8 +10,8 @@ public class Paddle : MonoBehaviour
     //AI stuff
     private int _tick = 0;
     private float _tickTimer = 0f;
-    private const float _secondsPerTick = 0.08f;
-    private float _targetBallHeight;
+    private const float _secondsPerTick = 0.03f;
+    private float _targetBallHeight, _newTargetBallHeight;
 
     public bool GetMovingUp()
     {
@@ -22,7 +22,7 @@ public class Paddle : MonoBehaviour
     {        
         if (_ballTransform != null)
         {
-            if (_tick % 7 == 0)
+            if (_tick % 2 == 0)
             {
                 return Mathf.Clamp(_ballTransform.position.y, -Globals.YLimit, Globals.YLimit);
             }
@@ -84,7 +84,7 @@ public class Paddle : MonoBehaviour
             transform.position = myPos;
 
         } else //If this is a computer-controlled paddle
-        {
+        {            
 
             if (_ballTransform == null)
             {
@@ -103,26 +103,23 @@ public class Paddle : MonoBehaviour
                     _tickTimer -= _secondsPerTick;
                     _tick++;
 
-                    if(_tick % 2 == 0 || _tick % 3 == 0 || _tick % 5 == 0 || _tick % 7 == 0)
-                    {
-                        _targetBallHeight = EstimateBallHeight();
-                    }
+                    _targetBallHeight = EstimateBallHeight();
 
                 }                              
 
             }
 
-            //_targetBallHeight = Mathf.Lerp(EstimateBallHeight(), _targetBallHeight, Time.deltaTime * 1f); //Lerp the target ball height, otherwise the AI paddle moves kinda jankily.
+            _newTargetBallHeight = Mathf.Lerp(_newTargetBallHeight, _targetBallHeight, Time.deltaTime * 15.5f);
 
-            if (myPos.y < _targetBallHeight - 0.1f)
+            if (myPos.y < _newTargetBallHeight - 0.05f)
             {
-                myPos.y += Globals.PaddleSpeed * Time.deltaTime;
+                myPos.y += (Globals.PaddleSpeed + 1.2f) * Time.deltaTime;
                 _movingUp = true;
             }
 
-            else if (myPos.y > _targetBallHeight + 0.1f)
+            else if (myPos.y > _newTargetBallHeight + 0.05f)
             {
-                myPos.y -= Globals.PaddleSpeed * Time.deltaTime;
+                myPos.y -= (Globals.PaddleSpeed + 1.2f) * Time.deltaTime;
                 _movingUp = false;
             }
 
