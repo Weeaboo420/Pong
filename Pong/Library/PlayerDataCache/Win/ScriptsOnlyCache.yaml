@@ -323,7 +323,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 699c8e4c9a8ea5fd637722e4835687cf
+      Hash: 8ba52e055cc1853e03c1027d54bd2057
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScoreKeeper

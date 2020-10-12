@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScoreKeeper : MonoBehaviour
 {        
     [SerializeField]
-    private Text _playerOneScore, _playerTwoScore;
+    private Text _playerOneScore, _playerTwoScore, _roundTally;
 
     [SerializeField]
     private GameObject _ballPrefab, _exitScreen;
@@ -22,7 +22,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private float _currentMasterVolume;
     private bool _defaultMove = true;
-    private int _leftPlayerScore = 0, _rightPlayerScore = 0;
+    private int _leftPlayerScore = 0, _rightPlayerScore = 0, _rounds = 0;
     private GameObject _ball;
     private void SpawnBall()
     {
@@ -65,7 +65,9 @@ public class ScoreKeeper : MonoBehaviour
 
     IEnumerator StartNewRound()
     {
-        yield return new WaitForSeconds(1.5f);
+        _rounds++;
+        UpdateUI();
+        yield return new WaitForSeconds(1.5f);        
         SpawnBall();
     }
 
@@ -83,7 +85,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private void UpdateUI()
     {
-        
+        _roundTally.text = "Round " + _rounds.ToString();
 
         if (!_isSinglePlayer)
         {
@@ -98,8 +100,7 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Start()
     {
-        UpdateUI();
-        SpawnBall();
+        StartCoroutine(StartNewRound());
 
         Cursor.visible = false;
 
@@ -125,7 +126,7 @@ public class ScoreKeeper : MonoBehaviour
         
         if (_ball != null) //Make sure we have a reference to the ball before looking at its position.
         {
-            //If the ball travels outside the bounds, remove it, and spawn a new one.
+            //If the ball travels outside the bounds, remove it and start a new round.
             if (_ball.transform.position.x > Globals.BoundsX || _ball.transform.position.x < -Globals.BoundsX ||
                 _ball.transform.position.y > Globals.BoundsY || _ball.transform.position.y < -Globals.BoundsY)
             {
@@ -146,8 +147,7 @@ public class ScoreKeeper : MonoBehaviour
         }
 
         _audioSource.Play();
-
-        UpdateUI();
+        
         StartCoroutine(StartNewRound());
     }
 }
